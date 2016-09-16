@@ -23,7 +23,7 @@ class SignUpScreen1 extends React.Component {
       lastName: null
     }
   }
-
+  
   componentWillMount() {
     return fetch('http://localhost:1337/form-status', {
       method: 'GET',
@@ -32,11 +32,6 @@ class SignUpScreen1 extends React.Component {
         'Content-Type': 'application/json',
       },
     })
-    .then(response => response.json())
-    .then(responseJson => responseJson[0])
-    .then(formObj => this.setState({
-      userId: formObj.id,
-    }))
     .catch(error => {console.error(error)})
   }
 

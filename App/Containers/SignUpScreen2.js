@@ -22,7 +22,7 @@ class SignUpScreen2 extends React.Component {
       email: null
     }
   }
-
+  
   handleChangeEmail = (text) => {
     this.formObj.email = text
   }

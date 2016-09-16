@@ -25,9 +25,9 @@ class RootContainer extends Component {
     })
     .then(response => response.json())
     .then(responseJson => responseJson[0])
-    .then(formObj => this.setState({
-      userId: formObj.id,
-      screenId: formObj.form.screenId,
+    .then(user => this.setState({
+      userId: user.id,
+      screenId: user.screenId,
       loading: false
     }))
     .catch(error => {console.error(error)})
