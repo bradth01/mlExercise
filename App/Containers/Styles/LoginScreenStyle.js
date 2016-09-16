@@ -4,7 +4,11 @@ import { Colors, Metrics } from '../../Themes'
 export default StyleSheet.create({
   container: {
     paddingTop: 70,
-    backgroundColor: Colors.cloud
+    backgroundColor: Colors.cloud,
+  },
+  loadingContainer: {
+    paddingTop: 70,
+    backgroundColor: Colors.snow,
   },
   form: {
     backgroundColor: Colors.snow,
@@ -16,7 +20,11 @@ export default StyleSheet.create({
     paddingHorizontal: Metrics.doubleBaseMargin
   },
   rowLabel: {
-    color: Colors.charcoal
+    color: Colors.panther
+  },
+  rowLabelThankYou: {
+    color: Colors.panther,
+    textAlign: 'center'
   },
   textInput: {
     height: 40,
@@ -38,7 +46,7 @@ export default StyleSheet.create({
     flex: 1,
     borderWidth: 1,
     borderColor: Colors.steel,
-    backgroundColor: Colors.windowTint,
+    backgroundColor: Colors.fb,
     padding: 6
   },
   loginText: {

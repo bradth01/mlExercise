@@ -2,26 +2,25 @@
 'use strict';
 
 import React, { Component } from 'react';
-import {
-    ActivityIndicator,
-    Image,
-    ScrollView
-} from 'react-native';
+import ReactNative from 'react-native';
 import {Images, Metrics} from '../Themes';
 import Styles from '../Containers/Styles/LoginScreenStyle';
-import * as Animatable from 'react-native-animatable';
+import { createAnimatableComponent, Image } from 'react-native-animatable';
+
+const ScrollView = createAnimatableComponent(ReactNative.ScrollView);
 
 export default class Loading extends Component {
     render() {
         return (
-            <ScrollView contentContainerStyle={{justifyContent: 'center'}} style={Styles.container}>
-                <Animatable.Image 
+            <ScrollView 
+                contentContainerStyle={{justifyContent: 'center'}} style={Styles.loadingContainer}>
+                <Image 
                     source={Images.logo} 
                     style={[Styles.topLogo, { width: Metrics.screenWidth }]}
                     animation="pulse"
-                    easing="ease-out"
+                    easing="ease-in-out"
                     iterationCount="infinite"
-                 />
+                />
             </ScrollView> 
         );
     } 

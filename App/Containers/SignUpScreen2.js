@@ -1,7 +1,6 @@
 import React from 'react'
-import {
+import ReactNative, {
   View,
-  ScrollView,
   Text,
   TextInput,
   TouchableOpacity,
@@ -11,6 +10,9 @@ import {
 } from 'react-native'
 import Styles from './Styles/LoginScreenStyle'
 import {Images, Metrics} from '../Themes'
+import { createAnimatableComponent } from 'react-native-animatable';
+
+const ScrollView = createAnimatableComponent(ReactNative.ScrollView);
 
 class SignUpScreen2 extends React.Component {
 
@@ -37,7 +39,10 @@ class SignUpScreen2 extends React.Component {
     const editable = !fetching
     const textInputStyle = editable ? Styles.textInput : Styles.textInputReadonly
     return (
-      <ScrollView contentContainerStyle={{justifyContent: 'center'}} style={Styles.container}>
+      <ScrollView 
+        animation='fadeIn'
+        duration={1250}
+        contentContainerStyle={{justifyContent: 'center'}} style={Styles.container}>
         <Image source={Images.logo} style={[Styles.topLogo, { width: Metrics.screenWidth }]} />
         <View style={Styles.form}>
           <View style={Styles.row}>

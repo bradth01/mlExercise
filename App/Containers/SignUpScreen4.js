@@ -1,17 +1,17 @@
 import React from 'react'
-import {
-  View,
-  ScrollView,
-  Text,
+import ReactNative, {
+  // View,
   TextInput,
   TouchableOpacity,
-  Image,
   Keyboard,
   LayoutAnimation
 } from 'react-native'
 import { connect } from 'react-redux'
 import Styles from './Styles/LoginScreenStyle'
 import {Images, Metrics} from '../Themes'
+import { createAnimatableComponent, Image, Text, View } from 'react-native-animatable';
+
+const ScrollView = createAnimatableComponent(ReactNative.ScrollView);
 
 class SignUpScreen4 extends React.Component {
 
@@ -19,7 +19,8 @@ class SignUpScreen4 extends React.Component {
     super(props)
     this.formObj = {      
       userId: this.props.userId,
-      screenId: this.props.screenId
+      screenId: this.props.screenId,
+      completed: true
     }
   }
 
@@ -29,17 +30,32 @@ class SignUpScreen4 extends React.Component {
 
   render () {
     return (
-      <ScrollView contentContainerStyle={{justifyContent: 'center'}} style={Styles.container}>
-        <Image source={Images.logo} style={[Styles.topLogo, { width: Metrics.screenWidth }]} />
+      <ScrollView 
+        animation='fadeIn'
+        duration={1500}
+        contentContainerStyle={{justifyContent: 'center'}} style={Styles.container}>
+        <Image 
+          animation="pulse"
+          easing="ease-out"
+          duration={3000}
+          iterationCount="infinite"
+          source={Images.logo} style={[Styles.topLogo, { width: Metrics.screenWidth }]} />
         <View style={Styles.form}>
           <View style={Styles.row}>
-            <Text style={Styles.rowLabel}>Thank You!</Text>
+            <Text
+              animation='fadeIn'
+              duration={3000} 
+              style={Styles.rowLabelThankYou}>Thank You!</Text>
           </View>
 
           <View style={[Styles.loginRow]}>
-            <TouchableOpacity style={Styles.loginButtonWrapper} 
+            <TouchableOpacity 
+              style={Styles.loginButtonWrapper} 
               onPress={this.handlePressNext}>
-              <View style={Styles.loginButton}>
+              <View 
+                animation="bounceInUp"
+                duration={2000}
+                style={Styles.loginButton}>
                 <Text style={Styles.loginText}>Start Over</Text>
               </View>
             </TouchableOpacity>
