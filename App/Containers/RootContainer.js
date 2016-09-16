@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { View, Text } from 'react-native'
 import MainSignUp from './MainSignUp'
+import Loading from '../Components/Loading'
 // Styles
 import styles from './Styles/RootContainerStyle'
 
@@ -34,7 +35,7 @@ class RootContainer extends Component {
   }
 
   render () {
-    if (this.state.loading) return (<Text>Loading</Text>) 
+    if (this.state.loading) return (<Loading />) 
     return (
       <View style={styles.applicationView}>
         <MainSignUp 

@@ -13,7 +13,6 @@ import { connect } from 'react-redux'
 import Styles from './Styles/LoginScreenStyle'
 import {Images, Metrics} from '../Themes'
 
-
 class SignUpScreen4 extends React.Component {
 
   constructor (props) {
