@@ -6,7 +6,7 @@ import ReactNative, {
   TouchableOpacity,
   Image,
   Keyboard,
-  LayoutAnimation
+  AlertIOS
 } from 'react-native'
 import Styles from './Styles/LoginScreenStyle'
 import {Images, Metrics} from '../Themes'
@@ -30,14 +30,16 @@ class SignUpScreen2 extends React.Component {
   }
 
   handlePressNext = () => {
-    this.props.handlePressNext(this.formObj)
+    let re = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
+    let OK = re.exec(this.formObj.email);
+    if (!OK) {
+      AlertIOS.alert('Please enter a valid email address');
+    } else{
+      this.props.handlePressNext(this.formObj)
+    }
   }
 
   render () {
-    // const { email } = this.state
-    const { fetching } = this.props
-    const editable = !fetching
-    const textInputStyle = editable ? Styles.textInput : Styles.textInputReadonly
     return (
       <ScrollView 
         animation='fadeIn'
@@ -49,9 +51,8 @@ class SignUpScreen2 extends React.Component {
             <Text style={Styles.rowLabel}>Email</Text>
             <TextInput
               ref='email'
-              style={textInputStyle}
+              style={Styles.textInput}
               // value={email}
-              editable={editable}
               keyboardType='email-address'
               returnKeyType='next'
               onChangeText={this.handleChangeEmail}

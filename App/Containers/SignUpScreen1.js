@@ -6,7 +6,7 @@ import ReactNative, {
   TouchableOpacity,
   Image,
   Keyboard,
-  LayoutAnimation
+  AlertIOS
 } from 'react-native'
 import Styles from './Styles/LoginScreenStyle'
 import {Images, Metrics} from '../Themes'
@@ -46,15 +46,14 @@ class SignUpScreen1 extends React.Component {
   }
 
   handlePressNext = () => {
-    this.props.handlePressNext(this.formObj)
+    if (!this.formObj.firstName || !this.formObj.lastName) {
+      AlertIOS.alert('Please enter your full name.');
+    } else {
+      this.props.handlePressNext(this.formObj);
+    }
   }
 
   render () {
-    // const { firstName, lastName } = this.state
-    const { fetching } = this.props
-    const editable = !fetching
-    const textInputStyle = editable ? Styles.textInput : Styles.textInputReadonly
-
     return (
       <ScrollView 
         animation='fadeIn'
@@ -65,9 +64,8 @@ class SignUpScreen1 extends React.Component {
             <Text style={Styles.rowLabel}>First Name</Text>
             <TextInput
               ref='firstName'
-              style={textInputStyle}
+              style={Styles.textInput}
               // value={firstName}
-              editable={editable}
               keyboardType='default'
               returnKeyType='next'
               onChangeText={this.handleChangeFirstName}
@@ -80,9 +78,7 @@ class SignUpScreen1 extends React.Component {
             <Text style={Styles.rowLabel}>Last Name</Text>
             <TextInput
               ref='lastName'
-              style={textInputStyle}
-              // value={lastName}
-              editable={editable}
+              style={Styles.textInput}
               keyboardType='default'
               returnKeyType='go'
               onChangeText={this.handleChangeLastName}

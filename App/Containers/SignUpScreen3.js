@@ -6,7 +6,7 @@ import ReactNative, {
   TouchableOpacity,
   Image,
   Keyboard,
-  LayoutAnimation
+  AlertIOS
 } from 'react-native'
 import Styles from './Styles/LoginScreenStyle'
 import {Images, Metrics} from '../Themes'
@@ -45,15 +45,26 @@ class SignUpScreen3 extends React.Component {
   }
 
   handlePressNext = () => {
-    this.props.handlePressNext(this.formObj)
+    if (!this.formObj.address || !this.formObj.city || !this.formObj.state || !this.formObj.zipCode) {
+      AlertIOS.alert('Please enter your full address');
+    } else {
+      let re = /\d/;
+      let streetOK = re.exec(this.formObj.address);
+      let cityNotOK = re.exec(this.formObj.city); 
+      if (!streetOK) {
+        AlertIOS.alert('Please enter a valid street address.');
+      } else if (cityNotOK) {
+        AlertIOS.alert('Please enter a valid city name.');
+      } else if (this.formObj.zipCode.length !== 5){
+        AlertIOS.alert('Please enter a valid zip code.');
+      } else {
+        this.props.handlePressNext(this.formObj)      
+      }
+    }
   }
 
 
   render () {
-    // const { firstName, lastName } = this.state
-    const { fetching } = this.props
-    const editable = !fetching
-    const textInputStyle = editable ? Styles.textInput : Styles.textInputReadonly
     return (
       <ScrollView 
         animation='fadeIn'
@@ -65,9 +76,8 @@ class SignUpScreen3 extends React.Component {
             <Text style={Styles.rowLabel}>Street Address</Text>
             <TextInput
               ref='address'
-              style={textInputStyle}
-              // value={firstName}
-              editable={editable}
+              style={Styles.textInput}
+              // value={firstName}          
               keyboardType='default'
               returnKeyType='next'
               onChangeText={this.handleChangeAddress}
@@ -80,9 +90,8 @@ class SignUpScreen3 extends React.Component {
             <Text style={Styles.rowLabel}>City</Text>
             <TextInput
               ref='city'
-              style={textInputStyle}
-              // value={lastName}
-              editable={editable}
+              style={Styles.textInput}
+              // value={lastName}          
               keyboardType='default'
               returnKeyType='go'
               onChangeText={this.handleChangeCity}
@@ -95,9 +104,8 @@ class SignUpScreen3 extends React.Component {
             <Text style={Styles.rowLabel}>State</Text>
             <TextInput
               ref='state'
-              style={textInputStyle}
-              // value={lastName}
-              editable={editable}
+              style={Styles.textInput}
+              // value={lastName}          
               keyboardType='default'
               returnKeyType='go'
               onChangeText={this.handleChangeState}
@@ -110,9 +118,8 @@ class SignUpScreen3 extends React.Component {
             <Text style={Styles.rowLabel}>Zip Code</Text>
             <TextInput
               ref='zipCode'
-              style={textInputStyle}
-              // value={lastName}
-              editable={editable}
+              style={Styles.textInput}
+              // value={lastName}          
               keyboardType='numeric'
               returnKeyType='go'
               onChangeText={this.handleChangeZipCode}

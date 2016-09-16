@@ -1,10 +1,8 @@
 import React from 'react'
 import ReactNative, {
-  // View,
   TextInput,
   TouchableOpacity,
   Keyboard,
-  LayoutAnimation
 } from 'react-native'
 import { connect } from 'react-redux'
 import Styles from './Styles/LoginScreenStyle'
