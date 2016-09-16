@@ -33,6 +33,7 @@
     "react-native-config": "github:skellock/react-native-config#fix-missing-env",
     "react-native-device-info": "^0.9.5",
     "react-native-drawer": "^2.3.0",
+    "react-native-fm-picker": "0.0.5",
     "react-native-i18n": "^0.1.1",
     "react-native-linear-gradient": "^1.5.12",
     "react-native-maps": "^0.8.2",

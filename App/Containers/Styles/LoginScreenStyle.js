@@ -56,5 +56,8 @@ export default StyleSheet.create({
   topLogo: {
     alignSelf: 'center',
     resizeMode: 'contain'
-  }
+  },
+  bottomPicker : {
+    width: Metrics.screenWidth,
+  },
 })
