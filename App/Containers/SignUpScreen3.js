@@ -75,56 +75,56 @@ class SignUpScreen3 extends React.Component {
           <View style={Styles.row}>
             <Text style={Styles.rowLabel}>Street Address</Text>
             <TextInput
-              ref='address'
+              // ref='address'
               style={Styles.textInput}
               // value={firstName}          
               keyboardType='default'
               returnKeyType='next'
               onChangeText={this.handleChangeAddress}
               underlineColorAndroid='transparent'
-              onSubmitEditing={() => this.refs.firstName.focus()}
+              // onSubmitEditing={() => this.refs.address.focus()}
               placeholder='Enter Address' />
           </View>
 
           <View style={Styles.row}>
             <Text style={Styles.rowLabel}>City</Text>
             <TextInput
-              ref='city'
+              // ref='city'
               style={Styles.textInput}
               // value={lastName}          
               keyboardType='default'
               returnKeyType='go'
               onChangeText={this.handleChangeCity}
               underlineColorAndroid='transparent'
-              onSubmitEditing={() => this.refs.firstName.focus()}
+              // onSubmitEditing={() => this.refs.city.focus()}
               placeholder='Enter City' />
           </View>
 
           <View style={Styles.row}>
             <Text style={Styles.rowLabel}>State</Text>
             <TextInput
-              ref='state'
+              // ref='state'
               style={Styles.textInput}
               // value={lastName}          
               keyboardType='default'
               returnKeyType='go'
               onChangeText={this.handleChangeState}
               underlineColorAndroid='transparent'
-              onSubmitEditing={() => this.refs.firstName.focus()}
+              // onSubmitEditing={() => this.refs.firstName.focus()}
               placeholder='Enter State' />
           </View>
 
           <View style={Styles.row}>
             <Text style={Styles.rowLabel}>Zip Code</Text>
             <TextInput
-              ref='zipCode'
+              // ref='zipCode'
               style={Styles.textInput}
               // value={lastName}          
               keyboardType='numeric'
               returnKeyType='go'
               onChangeText={this.handleChangeZipCode}
               underlineColorAndroid='transparent'
-              onSubmitEditing={() => this.refs.firstName.focus()}
+              // onSubmitEditing={() => this.refs.firstName.focus()}
               placeholder='Enter Zip Code' />
           </View>
 

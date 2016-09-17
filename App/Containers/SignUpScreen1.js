@@ -63,27 +63,27 @@ class SignUpScreen1 extends React.Component {
           <View style={Styles.row}>
             <Text style={Styles.rowLabel}>First Name</Text>
             <TextInput
-              ref='firstName'
+              // ref='firstName'
               style={Styles.textInput}
               // value={firstName}
               keyboardType='default'
               returnKeyType='next'
               onChangeText={this.handleChangeFirstName}
               underlineColorAndroid='transparent'
-              onSubmitEditing={() => this.refs.firstName.focus()}
+              // onSubmitEditing={() => this.refs.firstName.focus()}
               placeholder='Enter First Name' />
           </View>
 
           <View style={Styles.row}>
             <Text style={Styles.rowLabel}>Last Name</Text>
             <TextInput
-              ref='lastName'
+              // ref='lastName'
               style={Styles.textInput}
               keyboardType='default'
               returnKeyType='go'
               onChangeText={this.handleChangeLastName}
               underlineColorAndroid='transparent'
-              onSubmitEditing={this.handlePressNext}
+              // onSubmitEditing={() => this.refs.lastName.focus()}
               placeholder='Enter Last Name' />
           </View>
 

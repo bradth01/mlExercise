@@ -50,14 +50,14 @@ class SignUpScreen2 extends React.Component {
           <View style={Styles.row}>
             <Text style={Styles.rowLabel}>Email</Text>
             <TextInput
-              ref='email'
+              // ref='email'
               style={Styles.textInput}
               // value={email}
               keyboardType='email-address'
               returnKeyType='next'
               onChangeText={this.handleChangeEmail}
               underlineColorAndroid='transparent'
-              onSubmitEditing={() => this.refs.firstName.focus()}
+              // onSubmitEditing={() => this.refs.email.focus()}
               placeholder='Enter Email Address' />
           </View>
 
